@@ -1,0 +1,210 @@
+.mesas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  main{
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vw;
+    justify-content: center;
+    padding: 2vw;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 1px;
+    background-color: #ffffff;
+    border: rgb(217, 217, 217) 0.2px solid;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(25% - 2vw);
+    max-width: 328px;
+    height: 170px;
+    border-radius: 10px;
+    color: black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: rgba(63, 63, 63, 0.189) 0.2px solid;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.584);
+  }
+  
+  .card-icon img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .card-name {
+    font-size: 30px;
+    margin-top: 0.2rem;
+    font-family: "Jost", sans-serif;
+  }
+  
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:inherit;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+  
+  .action-button {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Jost", sans-serif;
+    font-size: 24px;
+    height: 60px;
+    max-width: 328px;
+    justify-content: space-between;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: rgb(217, 217, 217) 0.2px solid;
+  }
+  
+  .action-button i {
+    margin-left: 0.5rem;
+    font-size: 34px;
+  }
+  
+  .action-button a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .action-button:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.584);
+  }
+  
+  h1 {
+    font-family: "Jost", sans-serif;
+    margin-left: 0;
+    text-align: center;
+  }
+  i {
+    font-size: 50px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: border 0.3s ease, transform 0.3s ease;
+    display: flex;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  i:hover {
+    padding: 0.1px;
+    transform: scale(1.1);
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .card {
+        width: calc(33% - 2vw);
+    }
+    .action-button {
+        width: calc(45% - 1rem);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .card {
+        width: calc(50% - 2vw);
+    }
+    .action-button {
+        width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+    .action-button {
+        width: 100%;
+    }
+    .card-name {
+        font-size: 24px;
+    }
+    .card-icon img {
+        width: 60px;
+        height: 60px;
+    }
+  }
+  /* Fondo del modal (overlay) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+  display: flex;
+  justify-content: center; /* Centrar contenido horizontalmente */
+  align-items: center; /* Centrar contenido verticalmente */
+  z-index: 1000;
+}
+
+/* Modal (contenido) */
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px; /* Ancho fijo para el modal */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Espacio entre el título, input y botones */
+}
+
+/* Estilo del input de texto */
+.modal input {
+  width: 100%; /* Hace que el input ocupe todo el ancho del modal */
+  padding: 10px;
+  margin-bottom: 20px; /* Espacio entre el input y los botones */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilo de los botones */
+.modal-buttons button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3085d6;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-buttons button:hover {
+  background-color: #2569b3; /* Cambia de color al pasar el mouse */
+}
+
+/* Estilo para el botón de cancelar */
+.modal-buttons button:first-child {
+  background-color: #d33;
+}
+
+.modal-buttons button:first-child:hover {
+  background-color: #a03f3f;
+}

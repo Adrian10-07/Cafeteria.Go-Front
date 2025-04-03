@@ -1,0 +1,158 @@
+/* Estilos generales */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card {
+  color: #ddd;
+  background-color: #ad9454;
+  width: 200px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 🎨 Efecto de hover */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 10px rgba(255, 192, 2, 0.2);
+  background-color: #c7a86b;
+}
+
+/* ✨ Estilo para productos seleccionados */
+.card.selected {
+  border: 2px solid #ffd700;
+  background-color: #c7a86b;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%; /* Cambiado para ser más flexible */
+  max-width: 300px; /* Limitar el tamaño máximo */
+  transition: border-color 0.3s ease;
+}
+
+select:hover {
+  border-color: #ffd700;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ffd700;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  width: 100%;
+  max-width: 250px; 
+  align-items: center;
+  left: 100%;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  justify-content: center;
+  padding: 2vw;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+  background-color: #ffffff;
+  border: rgb(217, 217, 217) 0.2px solid;
+}
+button:hover {
+  background-color: #e6c200;
+}
+
+.selected-count {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 150px; 
+  }
+
+  select {
+    max-width: 100%; 
+  }
+
+  button {
+    max-width: 100%; 
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    gap: 5px; 
+  }
+
+  .card {
+    width: 100%; 
+  }
+
+  select {
+    font-size: 14px; 
+  }
+
+  button {
+    padding: 8px 16px; 
+
+  .selected-count {
+    font-size: 16px; 
+  }
+}
+}
