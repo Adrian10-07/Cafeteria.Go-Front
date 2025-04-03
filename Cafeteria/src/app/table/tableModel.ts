@@ -1,5 +1,5 @@
 export interface Mesa {
-    idMesa?: number;
-    status: string;
+    IdMesa?: number;
+    Status: string;
   }
   

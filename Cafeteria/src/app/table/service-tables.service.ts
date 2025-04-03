@@ -34,7 +34,7 @@ export class MesaService {
   }
 
   // Eliminar mesa
-  deleteMesa(idMesa: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${idMesa}`);
+  deleteMesa(IdMesa: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}${IdMesa}`);
   }
 }

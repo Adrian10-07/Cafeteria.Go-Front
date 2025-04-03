@@ -11,7 +11,7 @@ export class CreateTableComponent {
   constructor(private mesaService: MesaService) {}
 
   createMesa(): void {
-    const nuevaMesa: Mesa = { status: 'disponible' };
+    const nuevaMesa: Mesa = { Status: 'disponible' };
 
     this.mesaService.createMesa(nuevaMesa).subscribe({
       next: (mesaCreada) => {

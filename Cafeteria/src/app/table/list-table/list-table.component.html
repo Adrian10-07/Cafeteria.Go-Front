@@ -1,15 +1,29 @@
 <!-- src/app/components/mesa-list/mesa-list.component.html -->
 <h1>Mesas</h1>
+<div *ngIf="showModal" class="modal-overlay">
+  <div class="modal">
+    <h2>Ingresa tu nombre</h2>
+    <input type="text" [(ngModel)]="userName" placeholder="Tu nombre">
+    <div class="modal-buttons">
+      <button (click)="closeModal()">Cancelar</button>
+      <button (click)="proceedOrder()">Ordenar</button>
+    </div>
+  </div>
+</div>
+
 <div class="mesas-container">
   <div class="container">
     <app-create-table class="card"></app-create-table>
     <!-- Usamos ngFor para iterar sobre las mesas -->
-    <div *ngFor="let mesa of mesas" class="card">
-      <!-- Aquí podrías agregar más detalles si lo deseas -->
-      <div class="card-body">
-        <i class='bx bx-dish bx-tada' ></i>
-        <div class="card-name">{{ mesa.status }}</div>
+    <div *ngFor="let mesa of mesas" class="card" >
+      <div class="card-body" (click)="mesa.IdMesa ? openModal (mesa.IdMesa) : null">
+        <i class='bx bx-dish bx-tada'></i>
+        <div class="card-name">{{ mesa.Status }}</div>
       </div>
     </div>
+    
   </div>
 </div>
+
+<!--  -->
+<!-- (click)="mesa.IdMesa ? deleteMesa(mesa.IdMesa) : null" -->

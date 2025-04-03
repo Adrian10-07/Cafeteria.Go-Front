@@ -5,13 +5,15 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { FormsModule } from '@angular/forms';
+import { DatellesProductoComponent } from './datelles-producto/datelles-producto.component';
 
 
 @NgModule({
   declarations: [
     ListProductComponent,
     CreateProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    DatellesProductoComponent
   ],
   imports: [
     CommonModule,

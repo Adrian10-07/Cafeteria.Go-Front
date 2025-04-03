@@ -1,0 +1,31 @@
+/* Estilo para centrar el formulario */
+
+
+/* Estilo de la tarjeta */
+.card {
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado de la tarjeta */
+.card-header {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Espaciado en los campos del formulario */
+.form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Botón principal */
+.btn-primary {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out
+}
