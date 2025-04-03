@@ -1,0 +1,56 @@
+/* Contador de productos seleccionados */
+.selected-count {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Estilos generales */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card {
+  color: #ddd;
+  background-color: #ad9454;
+  width: 200px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 🎨 Efecto de hover */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 10px rgba(255, 192, 2, 0.2);
+  background-color: #c7a86b;
+}
+
+/* ✨ Estilo para productos seleccionados */
+.card.selected {
+  border: 2px solid #ffd700;
+  background-color: #c7a86b;
+}
+
+/* Estilo del botón */
+button {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #ffd700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e6c200;
+}
