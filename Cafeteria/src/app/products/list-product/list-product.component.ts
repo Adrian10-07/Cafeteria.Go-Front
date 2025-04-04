@@ -104,29 +104,47 @@ export class ListProductComponent {
       console.log('Objeto de pedido que se enviará a la API:', pedido);
 
       // Llamar al servicio para crear el pedido en la API
-      this.servicePedidosService.createPedido(pedido).subscribe(response => {
-        console.log('Pedido creado con éxito:', response);
-        
-        // Mostrar el mensaje de éxito usando SweetAlert
-        Swal.fire({
-          title: '¡Pedido realizado con éxito!',
-          text: `Total: $${pedido.Total}`,
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-        });
-
-        this.selectedProducts = [];  // Vaciar la lista de productos seleccionados después de realizar el pedido
-      }, error => {
-        console.error('Error al crear el pedido:', error);
-        
-        // Mostrar el mensaje de error usando SweetAlert
-        Swal.fire({
-          title: '¡Error!',
-          text: 'Hubo un error al realizar el pedido. Intenta nuevamente.',
-          icon: 'error',
-          confirmButtonText: 'Aceptar'
-        });
-      });
+      this.servicePedidosService.createPedido(pedido).subscribe(
+        response => {
+          console.log('Pedido creado con éxito. Respuesta completa:', response);
+      
+          // Si la API devuelve un estado de error dentro de la respuesta (pero no un error HTTP), manejarlo aquí.
+          if (response && response.error) {
+            console.error('Error en la respuesta:', response.error);
+            Swal.fire({
+              title: '¡Error!',
+              text: response.error,
+              icon: 'error',
+              confirmButtonText: 'Aceptar'
+            });
+            return;
+          }
+      
+          // Mostrar mensaje de éxito
+          Swal.fire({
+            title: '¡Pedido realizado con éxito!',
+            text: `Total: $${pedido.Total}`,
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          });
+      
+          this.selectedProducts = []; // Vaciar la lista de productos seleccionados
+        },
+        error => {
+          console.error('Error al crear el pedido:', error);
+      
+          // Si el error tiene un mensaje específico del backend, mostrarlo en el alerta
+          let errorMessage = error.error?.message || 'Hubo un error al realizar el pedido. Intenta nuevamente.';
+      
+          Swal.fire({
+            title: '¡Error!',
+            text: errorMessage,
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          });
+        }
+      );
+      
     } else {
       // Si no hay productos seleccionados, mostrar un mensaje de advertencia
       Swal.fire({

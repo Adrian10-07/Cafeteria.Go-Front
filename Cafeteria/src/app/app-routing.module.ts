@@ -6,6 +6,7 @@ import { ListProductComponent } from './products/list-product/list-product.compo
 import { ChatComponent } from './websocket/chat/chat.component';
 import { RegisterComponent } from './login/register/register.component';
 import { CreateRobotComponent } from './robots/create-robot/create-robot.component';
+import { PedidosListComponent } from './pedidos/pedidos-list/pedidos-list.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
  {path: 'chat', component: ChatComponent},
  {path: 'registroUser', component:RegisterComponent },
  {path: 'robots', component: CreateRobotComponent},
+ {path: 'pedidos', component: PedidosListComponent }
 ];
 
 @NgModule({
