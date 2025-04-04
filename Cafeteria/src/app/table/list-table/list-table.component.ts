@@ -13,8 +13,8 @@ export class ListTableComponent implements OnInit {
   mesas: Mesa[] = [];
   loading: boolean = false;
   showModal: boolean = false;
-  userName: string = ''; // Variable para el nombre del usuario
-  selectedMesaId: number | null = null; // Para almacenar el IdMesa seleccionado
+  userName: string = ''; 
+  selectedMesaId: number | null = null; 
 
   constructor(private mesaService: MesaService, private router: Router) { }
 
@@ -22,12 +22,11 @@ export class ListTableComponent implements OnInit {
     this.getMesas();
   }
 
-  // Método para obtener todas las mesas
   getMesas(): void {
     this.loading = true;
     this.mesaService.getAllMesas().subscribe({
       next: (data) => {
-        console.log('Datos recibidos:', data);  // Verifica los datos que llegan
+        console.log('Datos recibidos:', data);  
         this.mesas = data;
         this.loading = false;
       },
@@ -40,7 +39,7 @@ export class ListTableComponent implements OnInit {
 
 
   deleteMesa(IdMesa?: number): void {
-    if (IdMesa == null) {  // Maneja undefined y null
+    if (IdMesa == null) {  
       console.warn('ID de mesa indefinido, no se puede eliminar.');
       return;
     }
@@ -64,6 +63,7 @@ export class ListTableComponent implements OnInit {
               'success'
             );
             this.getMesas();
+            this.closeModal();
           },
           error: (err) => {
             console.error('Error deleting mesa:', err);
@@ -74,28 +74,29 @@ export class ListTableComponent implements OnInit {
   }
   proceedOrder(): void {
     if (this.userName.trim() !== '') {
-      // Guardamos el nombre del usuario y el IdMesa en el localStorage
       localStorage.setItem('userName', this.userName);
       localStorage.setItem('IdMesa', this.selectedMesaId!.toString());
-
-      // Redirigimos a la página de productos
+  
       this.router.navigate(['/productos']);
-      
-      // Cerramos el modal
       this.closeModal();
     } else {
-      alert('Por favor, ingresa tu nombre');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Nombre requerido',
+        text: 'Por favor, ingresa tu nombre antes de continuar',
+        confirmButtonText: 'Entendido',
+        confirmButtonColor: '#3085d6'
+      });
     }
-  }
+  } 
   openModal(IdMesa: number): void {
-    this.selectedMesaId = IdMesa; // Guardamos el IdMesa seleccionado
-    this.showModal = true; // Mostramos el modal
+    this.selectedMesaId = IdMesa; 
+    this.showModal = true; 
   }
 
-  // Método para cerrar el modal
   closeModal(): void {
-    this.showModal = false; // Ocultamos el modal
-    this.userName = ''; // Limpiamos el nombre del usuario
+    this.showModal = false; 
+    this.userName = ''; 
   }
 }  
 

@@ -1,5 +1,8 @@
-<div class="add-product">
+<div class="create-product">
   <app-create-product></app-create-product>
+</div>
+
+<div class="add-product">
   <select class="select" [(ngModel)]="selectedType">
     <option value="">Todos</option>
     <option value="Bebidas frías">Bebidas frías</option>
@@ -10,8 +13,6 @@
   </select>
 </div>
 
-
-
 <div class="product-list">
   <div 
     *ngFor="let product of getFilteredProducts()"
@@ -19,12 +20,13 @@
     [class.selected]="selectedProductIds.includes(product.IdProducto)"
     (click)="openProductModal(product)"
   >
+    <span class="material-symbols-outlined">{{ getProductIcon(product.Tipo) }}</span>
+    
     <h3>{{ product.Nombre }}</h3>
     <p>Precio: ${{ product.Precio }}</p>
   </div>
 </div>
 
-<!-- Modal para mostrar los detalles del producto -->
 <div class="modal" [class.show]="isModalOpen" (click)="closeModal()" *ngIf="isModalOpen">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <span class="close-btn" (click)="closeModal()">&times;</span>
@@ -35,9 +37,7 @@
   </div>
 </div>
 
-
 <div class="selected-count">
   Productos seleccionados: <strong>{{ selectedProducts.length }}</strong>
   <button (click)="placeOrder()">Realizar Pedido</button>
-
 </div>

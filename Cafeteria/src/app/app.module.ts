@@ -11,6 +11,11 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ChatComponent } from './websocket/chat/chat.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+import { RobotsModule } from './robots/robots.module';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ChatComponent,
   ],
   imports: [
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
@@ -27,11 +33,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     TableModule,
     LoginModule,
     HttpClientModule,
-    ReactiveFormsModule
-    
-
+    ReactiveFormsModule,
+    CommonModule,
+    RobotsModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
