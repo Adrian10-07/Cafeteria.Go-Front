@@ -5,6 +5,8 @@
     width: 100%;
     height: 100%;
   }
+
+
   
   main{
     width: 100%;
@@ -223,7 +225,10 @@
 }
 
 .modal-buttons button:last-child {
-  background-color: #5cb85c;
+  background-color: #44b606;
   color: white;
 }
-
+.modal-buttons .cancelar{
+  background-color: rgb(207, 207, 60);
+  color: white;
+}

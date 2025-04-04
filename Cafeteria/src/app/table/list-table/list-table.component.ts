@@ -13,8 +13,8 @@ export class ListTableComponent implements OnInit {
   mesas: Mesa[] = [];
   loading: boolean = false;
   showModal: boolean = false;
-  userName: string = ''; // Variable para el nombre del usuario
-  selectedMesaId: number | null = null; // Para almacenar el IdMesa seleccionado
+  userName: string = ''; 
+  selectedMesaId: number | null = null; 
 
   constructor(private mesaService: MesaService, private router: Router) { }
 
@@ -22,12 +22,11 @@ export class ListTableComponent implements OnInit {
     this.getMesas();
   }
 
-  // Método para obtener todas las mesas
   getMesas(): void {
     this.loading = true;
     this.mesaService.getAllMesas().subscribe({
       next: (data) => {
-        console.log('Datos recibidos:', data);  // Verifica los datos que llegan
+        console.log('Datos recibidos:', data);  
         this.mesas = data;
         this.loading = false;
       },
@@ -40,7 +39,7 @@ export class ListTableComponent implements OnInit {
 
 
   deleteMesa(IdMesa?: number): void {
-    if (IdMesa == null) {  // Maneja undefined y null
+    if (IdMesa == null) {  
       console.warn('ID de mesa indefinido, no se puede eliminar.');
       return;
     }
@@ -77,14 +76,19 @@ export class ListTableComponent implements OnInit {
     if (this.userName.trim() !== '') {
       localStorage.setItem('userName', this.userName);
       localStorage.setItem('IdMesa', this.selectedMesaId!.toString());
-
+  
       this.router.navigate(['/productos']);
-      
       this.closeModal();
     } else {
-      alert('Por favor, ingresa tu nombre');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Nombre requerido',
+        text: 'Por favor, ingresa tu nombre antes de continuar',
+        confirmButtonText: 'Entendido',
+        confirmButtonColor: '#3085d6'
+      });
     }
-  }
+  } 
   openModal(IdMesa: number): void {
     this.selectedMesaId = IdMesa; 
     this.showModal = true; 

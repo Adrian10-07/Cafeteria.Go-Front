@@ -5,9 +5,9 @@
     <h2>Ingresa tu nombre</h2>
     <input type="text" [(ngModel)]="userName" placeholder="Tu nombre">
     <div class="modal-buttons">
-      <button (click)="closeModal()">Cancelar</button>
+      <button  (click)="selectedMesaId ? deleteMesa(selectedMesaId) : null">Eliminar</button>
+      <button (click)="closeModal()" class="cancelar">Cancelar</button>
       <button (click)="proceedOrder()">Ordenar</button>
-      <button (click)="selectedMesaId ? deleteMesa(selectedMesaId) : null">Eliminar</button>
     </div>
   </div>
 </div>
