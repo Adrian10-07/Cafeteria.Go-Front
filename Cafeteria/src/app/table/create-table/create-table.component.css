@@ -3,8 +3,57 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: calc(25% - 2vw);
+    max-width: 328px;
+    height: 170px;
+    border-radius: 10px;
+    color: black;
     background-color: #ffffff;
+    border: rgba(63, 63, 63, 0.189) 0.2px solid;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
     cursor: pointer;
-    border: none;
-}
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .add-table-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .add-table-card i {
+    font-size: 60px; /* Ajusta el tamaño del ícono */
+    color: #3085d6;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .add-table-card:hover i {
+    color: #2569b3;
+  }
+  
+  .add-table-card .card-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    font-family: "Jost", sans-serif;
+    color: #333;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .add-table-card {
+      width: calc(33% - 2vw);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .add-table-card {
+      width: calc(50% - 2vw);
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .add-table-card {
+      width: 100%;
+    }
+  }
+  
