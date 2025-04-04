@@ -13,6 +13,8 @@ import { ChatComponent } from './websocket/chat/chat.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+import { RobotsModule } from './robots/robots.module';
 
 
 @NgModule({
@@ -31,9 +33,9 @@ import { MatIconModule } from '@angular/material/icon';
     TableModule,
     LoginModule,
     HttpClientModule,
-    ReactiveFormsModule
-    
-
+    ReactiveFormsModule,
+    CommonModule,
+    RobotsModule
   ],
   providers: [
     provideAnimationsAsync()
