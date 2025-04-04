@@ -137,4 +137,17 @@ export class ListProductComponent {
       });
     }
   }
+  
+  iconMap: { [key: string]: string } = {
+    'Bebidas frías': 'water_full',
+    'Bebidas Calientes': 'local_cafe',
+    'Postres': 'cookie',
+    'Desayuno': 'egg_alt',
+    'Comida': 'dinner_dining'
+  };
+  
+  getProductIcon(type: string): string {
+    return this.iconMap[type] || 'fastfood'; // Ícono por defecto
+  }
+  
 }
