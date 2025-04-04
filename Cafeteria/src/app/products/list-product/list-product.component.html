@@ -20,7 +20,6 @@
     [class.selected]="selectedProductIds.includes(product.IdProducto)"
     (click)="openProductModal(product)"
   >
-    <!-- Ícono dinámico basado en el tipo -->
     <span class="material-symbols-outlined">{{ getProductIcon(product.Tipo) }}</span>
     
     <h3>{{ product.Nombre }}</h3>

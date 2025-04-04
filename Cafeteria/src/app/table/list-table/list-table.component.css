@@ -152,16 +152,14 @@
         height: 60px;
     }
   }
-  /* Fondo del modal (overlay) */
 
 
-/* Modal (contenido) */
 
 
 
 .card-icon {
   color: #ffffff;
-  font-size: 90px;
+  font-size: 70px;
   margin-top: 0.2rem;
 
 }
@@ -171,7 +169,6 @@
   align-items: center;
 }
 
-/* Asegura que el modal-overlay ocupe toda la pantalla y centre su contenido */
 .modal-overlay {
   position: fixed;
   top: 0;

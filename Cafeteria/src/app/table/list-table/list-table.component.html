@@ -1,7 +1,4 @@
-<h1>Mesas</h1>
-<div class="create">
-  <app-create-table ></app-create-table>
-</div>
+
 <div class="modal-overlay" [class.show]="showModal" (click)="closeModal()" *ngIf="showModal">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <span class="close-btn" (click)="closeModal()">&times;</span>
@@ -10,15 +7,18 @@
     <div class="modal-buttons">
       <button (click)="closeModal()">Cancelar</button>
       <button (click)="proceedOrder()">Ordenar</button>
+      <button (click)="selectedMesaId ? deleteMesa(selectedMesaId) : null">Eliminar</button>
     </div>
   </div>
 </div>
 
 <div class="mesas-container">
+  <h1>Mesas</h1> 
+  <app-create-table (mesaCreada)="getMesas()"></app-create-table>
   <div class="container">
-    <div *ngFor="let mesa of mesas" class="card">
-      <div class="card-body" (click)="mesa.IdMesa ? openModal(mesa.IdMesa) : null">
-        <i class='bx bxs-dish card-icon'></i>
+    <div *ngFor="let mesa of mesas" class="card"(click)="mesa.IdMesa ? openModal(mesa.IdMesa) : null">
+      <div class="card-body" >
+        <span class="material-symbols-outlined card-icon">table_restaurant</span>
       </div>
       <div class="card-name">{{mesa.IdMesa}}</div>
       <div class="card-name">{{ mesa.Status }}</div>

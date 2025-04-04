@@ -64,6 +64,7 @@ export class ListTableComponent implements OnInit {
               'success'
             );
             this.getMesas();
+            this.closeModal();
           },
           error: (err) => {
             console.error('Error deleting mesa:', err);
@@ -74,28 +75,24 @@ export class ListTableComponent implements OnInit {
   }
   proceedOrder(): void {
     if (this.userName.trim() !== '') {
-      // Guardamos el nombre del usuario y el IdMesa en el localStorage
       localStorage.setItem('userName', this.userName);
       localStorage.setItem('IdMesa', this.selectedMesaId!.toString());
 
-      // Redirigimos a la página de productos
       this.router.navigate(['/productos']);
       
-      // Cerramos el modal
       this.closeModal();
     } else {
       alert('Por favor, ingresa tu nombre');
     }
   }
   openModal(IdMesa: number): void {
-    this.selectedMesaId = IdMesa; // Guardamos el IdMesa seleccionado
-    this.showModal = true; // Mostramos el modal
+    this.selectedMesaId = IdMesa; 
+    this.showModal = true; 
   }
 
-  // Método para cerrar el modal
   closeModal(): void {
-    this.showModal = false; // Ocultamos el modal
-    this.userName = ''; // Limpiamos el nombre del usuario
+    this.showModal = false; 
+    this.userName = ''; 
   }
 }  
 
