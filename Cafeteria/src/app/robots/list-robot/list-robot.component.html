@@ -1,0 +1,16 @@
+<div class="container mt-4">  
+    <div class="row">
+      <div class="col-md-4" *ngFor="let robot of robots">
+        <div class="card" style="width: 18rem;">
+            <span class="material-symbols-outlined">
+                smart_toy
+                </span>          <div class="card-body">
+            <h5 class="card-title">{{ robot?.alias }}</h5>
+            <h6 class="card-subtitle mb-2 text">{{ robot?.idRobot }}</h6>
+            <a href="#" class="btn mr-2"><i class="fas fa-link"></i>Editar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

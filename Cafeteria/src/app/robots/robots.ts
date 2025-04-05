@@ -1,4 +1,4 @@
 export interface Robots {
-    IdRobot: number
-    Alias: string
+    idRobot: number
+    alias: string
 }
