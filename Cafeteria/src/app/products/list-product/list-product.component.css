@@ -1,4 +1,3 @@
-/* Estilos generales */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f5f5f5;
@@ -7,9 +6,11 @@ body {
   padding: 20px;
 }
 
-/* Contenedor del formulario de creación */
 .create-product {
   margin-bottom: 20px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
 }
 
 /* Estilo del select */
@@ -22,7 +23,7 @@ body {
 .select {
   padding: 8px;
   font-size: 14px;
-  border: 1px solid #007bff;
+  border: 1px solid #ced11d;
   border-radius: 5px;
   background: white;
   cursor: pointer;
@@ -30,19 +31,20 @@ body {
 
 .select:focus {
   outline: none;
-  border-color: #0056b3;
+  border-color: #00b31e;
 }
 
 /* Estilos de la lista de productos */
 .product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Cards más pequeñas */
+  grid-template-columns: repeat(6, 1fr); /* 6 productos por fila */
   gap: 12px;
   padding: 10px;
 }
 
+/* Ajustar tamaño de las cards */
 .card {
-  background: white;
+  background: rgb(255, 255, 255);
   border-radius: 8px;
   padding: 12px;
   text-align: center;
@@ -57,13 +59,13 @@ body {
 }
 
 .card.selected {
-  border: 2px solid #007bff;
+  border: 2px solid #1e64af;
   background: #e3f2fd;
 }
 
 .material-symbols-outlined {
   font-size: 24px; /* Ícono más pequeño */
-  color: #007bff;
+  color: #ced11d;
 }
 
 .card h3 {
@@ -134,7 +136,7 @@ body {
 
 .modal-content button {
   width: 100%;
-  background: #007bff;
+  background: #78f00f;
   color: white;
   border: none;
   padding: 8px;
@@ -145,7 +147,7 @@ body {
 }
 
 .modal-content button:hover {
-  background: #0056b3;
+  background: #51f14b;
 }
 
 /* Contador de productos seleccionados */
@@ -156,7 +158,7 @@ body {
 }
 
 .selected-count strong {
-  color: #007bff;
+  color: #ced11d;
 }
 
 /* Animación */
@@ -169,4 +171,37 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* RESPONSIVE: Ajustar número de columnas según el tamaño de pantalla */
+@media (max-width: 1024px) {
+  .product-list {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: repeat(1, 1fr); /* 1 columna en móviles */
+  }
+}
+
+
+.bt-pedido{
+  margin-left: 10px;
+  color: white;
+  background-color: khaki;
+  border: none;
+  font-size: 1em 2em;
+  border-radius: 15px;
+  padding: 10px;
+}
+.container-list{
+  margin: 20px;
 }
