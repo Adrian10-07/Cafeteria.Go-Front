@@ -14,14 +14,14 @@
 </div>
 
 <div class="product-list">
-  <div 
+  <div
     *ngFor="let product of getFilteredProducts()"
     class="card"
     [class.selected]="selectedProductIds.includes(product.IdProducto)"
     (click)="openProductModal(product)"
   >
-    <span class="material-symbols-outlined">{{ getProductIcon(product.Tipo) }}</span>
-    
+    <!-- <span class="material-symbols-outlined">{{ getProductIcon(product.Tipo) }}</span> -->
+
     <h3>{{ product.Nombre }}</h3>
     <p>Precio: ${{ product.Precio }}</p>
   </div>

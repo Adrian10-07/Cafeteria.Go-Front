@@ -18,7 +18,7 @@ export class ListProductComponent {
   isModalOpen: boolean = false;
   selectedProduct: Product | null = null;
 
-  nombreCliente = localStorage.getItem('userName') || '';  
+  nombreCliente = localStorage.getItem('userName') || '';
   idMesa = parseInt(localStorage.getItem('IdMesa') || '0');
 
   constructor(
@@ -44,11 +44,11 @@ export class ListProductComponent {
     if (index === -1) {
       // Producto no está seleccionado, lo añadimos
       this.selectedProductIds = [...this.selectedProductIds, product.IdProducto];
-      this.selectedProducts.push(product);  
+      this.selectedProducts.push(product);
     } else {
       // Producto ya está seleccionado, lo eliminamos
       this.selectedProductIds = this.selectedProductIds.filter(id => id !== product.IdProducto);
-      this.selectedProducts = this.selectedProducts.filter(p => p.IdProducto !== product.IdProducto);  
+      this.selectedProducts = this.selectedProducts.filter(p => p.IdProducto !== product.IdProducto);
     }
   }
 
@@ -107,7 +107,7 @@ export class ListProductComponent {
       this.servicePedidosService.createPedido(pedido).subscribe(
         response => {
           console.log('Pedido creado con éxito. Respuesta completa:', response);
-      
+
           // Si la API devuelve un estado de error dentro de la respuesta (pero no un error HTTP), manejarlo aquí.
           if (response && response.error) {
             console.error('Error en la respuesta:', response.error);
@@ -119,7 +119,7 @@ export class ListProductComponent {
             });
             return;
           }
-      
+
           // Mostrar mensaje de éxito
           Swal.fire({
             title: '¡Pedido realizado con éxito!',
@@ -127,15 +127,15 @@ export class ListProductComponent {
             icon: 'success',
             confirmButtonText: 'Aceptar'
           });
-      
+
           this.selectedProducts = []; // Vaciar la lista de productos seleccionados
         },
         error => {
           console.error('Error al crear el pedido:', error);
-      
+
           // Si el error tiene un mensaje específico del backend, mostrarlo en el alerta
           let errorMessage = error.error?.message || 'Hubo un error al realizar el pedido. Intenta nuevamente.';
-      
+
           Swal.fire({
             title: '¡Error!',
             text: errorMessage,
@@ -144,7 +144,7 @@ export class ListProductComponent {
           });
         }
       );
-      
+
     } else {
       // Si no hay productos seleccionados, mostrar un mensaje de advertencia
       Swal.fire({
@@ -155,7 +155,7 @@ export class ListProductComponent {
       });
     }
   }
-  
+
   iconMap: { [key: string]: string } = {
     'Bebidas frías': 'water_full',
     'Bebidas Calientes': 'local_cafe',
@@ -163,9 +163,9 @@ export class ListProductComponent {
     'Desayuno': 'egg_alt',
     'Comida': 'dinner_dining'
   };
-  
+
   getProductIcon(type: string): string {
     return this.iconMap[type] || 'fastfood'; // Ícono por defecto
   }
-  
+
 }

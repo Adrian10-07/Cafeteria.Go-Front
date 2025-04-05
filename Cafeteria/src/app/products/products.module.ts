@@ -10,16 +10,13 @@ import { DatellesProductoComponent } from './datelles-producto/datelles-producto
 
 @NgModule({
   declarations: [
-    ListProductComponent,
-    CreateProductComponent,
-    UpdateProductComponent,
-    DatellesProductoComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
-    
+    FormsModule,
+    CreateProductComponent,
+    ListProductComponent
   ]
 })
 export class ProductsModule { }
