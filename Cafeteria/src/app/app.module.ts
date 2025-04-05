@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { RobotsModule } from './robots/robots.module';
 import { PedidosModule } from './pedidos/pedidos.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({

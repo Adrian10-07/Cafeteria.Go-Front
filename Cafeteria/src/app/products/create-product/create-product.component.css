@@ -25,4 +25,19 @@
     justify-content: space-between;
     align-items: center;
   }
-  
+.btn-canceled{
+  color: white;
+  background-color: brown;
+  border-radius: 5px;
+  border: none;
+  font-size: 25px;
+  margin: 2px;
+}
+.btn-success{
+  color: white;
+  background-color: rgb(142, 244, 69);
+  border-radius: 5px;
+  border: none;
+  font-size: 25px;
+  margin: 2px;
+}
