@@ -15,6 +15,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { RobotsModule } from './robots/robots.module';
+import { PedidosModule } from './pedidos/pedidos.module';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { RobotsModule } from './robots/robots.module';
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
-    RobotsModule
+    RobotsModule,
+    PedidosModule
   ],
   providers: [
     provideAnimationsAsync()
