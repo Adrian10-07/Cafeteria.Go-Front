@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ServiceUsersService } from '../../users/service-users.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 // import  '../../../../public/go-lang.png';
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginAdminComponent {
 
   constructor(
     private userService: ServiceUsersService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router,
   ) {
     // Inicializamos el formulario
     this.UserForm = this.fb.group({
@@ -21,7 +23,9 @@ export class LoginAdminComponent {
       password: ['', Validators.required]
     });
   }
-
+  goToTables() {
+    this.router.navigate(['/mesas']);
+  }
   login() {
     const email = this.UserForm.get('email')?.value;
     const password = this.UserForm.get('password')?.value;
@@ -39,6 +43,7 @@ export class LoginAdminComponent {
 
           alert('Inicio de sesión exitoso');
           console.log('Tipo de usuario:', userType);
+          this.goToTables();
 
           // this.router.navigate(['/dashboard']);
         },

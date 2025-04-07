@@ -21,11 +21,11 @@ export class PedidoModalComponent implements OnInit {
     this.pedidosService.getPedidoById(this.data.idPedido).subscribe({
       next: (data) => {
         this.pedido = {
-          idPedido: data.IdPedido,
-          idMesa: data.IdMesa,
-          nombre_cliente: data.Nombre_cliente,
-          status: data.Status,
-          total: data.Total
+          IdPedido: data.IdPedido,
+          IdMesa: data.IdMesa,
+          Nombre_cliente: data.Nombre_cliente,
+          Status: data.Status,
+          Total: data.Total
         };
         console.log(data);
 

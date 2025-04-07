@@ -11,15 +11,13 @@ import { LoginAdminComponent } from './login/login-admin/login-admin.component';
 
 
 const routes: Routes = [
- {path:'',component: LoginComponent}, 
+ {path:'',component: LoginAdminComponent}, 
  {path:'mesas', component: ListTableComponent},
  {path:'productos', component: ListProductComponent},
  {path: 'chat', component: ChatComponent},
- {path: 'registroUser', component:RegisterComponent},
  {path: 'robots', component: CreateRobotComponent},
  {path: 'pedidos', component: PedidosListComponent },
- {path: 'loginAdmin', component: LoginAdminComponent},
- {path: 'createCajero', component: RegisterComponent},
+ {path: 'CreateCajero', component: RegisterComponent},
 ];
 
 @NgModule({
