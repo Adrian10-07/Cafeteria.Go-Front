@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(private location: Location){}
+  constructor(){}
 
-  goBack(): void {
-    this.location.back();
+  isMenuOpen = false; // Controla la visibilidad del menú hamburguesa
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    console.log('Menú toggled:', this.isMenuOpen); // Para depurar
   }
+
+  goBack() {
+    window.history.back(); // Retrocede en la navegación
+  }
+
 }

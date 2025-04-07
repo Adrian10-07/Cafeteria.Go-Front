@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button'; // Para los botones
 import { MatCardModule } from '@angular/material/card';     // Opcional para estructura
 import { UsersModule } from './users/users.module';
+import { MenuComponent } from './shared/menu/menu.component';
 
 
 
@@ -30,6 +31,7 @@ import { UsersModule } from './users/users.module';
     FooterComponent,
     NavbarComponent,
     ChatComponent,
+    MenuComponent,
   ],
   imports: [
     MatIconModule,

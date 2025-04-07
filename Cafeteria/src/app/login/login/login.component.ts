@@ -12,4 +12,8 @@ export class LoginComponent {
   goToTables() {
     this.router.navigate(['/mesas']);
   }
+  goToLoginAdmin() {
+    this.router.navigate(['/loginAdmin']);
+
+  }
 }
