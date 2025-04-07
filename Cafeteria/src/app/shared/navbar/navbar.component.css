@@ -1,0 +1,165 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #885809;
+  color: white;
+  padding: 30px 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de íconos */
+.nav-links {
+  display: flex;
+  gap: 20px; /* Espacio entre los íconos */
+  align-items: center; /* Centrar verticalmente los íconos */
+}
+
+/* Iconos del navbar */
+.navbar .icon {
+  font-size: 30px; /* Ajustar el tamaño de los íconos */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Icono de logout */
+.logout {
+  font-size: 30px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logout:hover {
+  color: #ff4c4c; /* Color al pasar el cursor */
+}
+
+/* Icono de menu */
+.navbar .bx-menu:hover {
+  color: #ffcc00;
+}
+
+/* Asegurarse de que los íconos estén alineados correctamente */
+.nav-links i {
+  display: inline-block;
+  padding: 5px;
+}
+/* Estilos para el menú desplegable */
+.dropdown-menu {
+  position: fixed;
+  top: 60px; /* Ajusta según la altura de tu navbar */
+  right: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  max-height: 500px;
+  padding: 10px 0;
+}
+
+.dropdown-menu header {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: #f5f5f5;
+}
+
+.menu-item i {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.has-submenu {
+  position: relative;
+}
+
+.submenu-icon {
+  margin-left: auto;
+  transition: transform 0.3s;
+}
+
+.has-submenu.show .submenu-icon {
+  transform: rotate(180deg);
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #f9f9f9;
+}
+
+.submenu.show {
+  max-height: 200px;
+}
+
+.submenu li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 40px;
+  color: #555;
+  text-decoration: none;
+}
+
+.submenu li a:hover {
+  background: #eee;
+}
+
+.submenu li a i {
+  font-size: 1em;
+  margin-right: 8px;
+}
+
+.navbar-logo {
+  width: 80px; /* Tamaño similar a un ícono */
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.navbar-title {
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  white-space: nowrap;
+}

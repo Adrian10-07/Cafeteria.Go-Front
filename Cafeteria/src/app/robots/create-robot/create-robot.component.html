@@ -1,0 +1,30 @@
+<!-- Botón para abrir el modal -->
+<button type="button" class="btn btn-primary" (click)="openModal()">
+    Agregar Producto
+  </button>
+  
+  <!-- Modal (usando *ngIf para mostrarlo) -->
+  <div *ngIf="showModal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h5 class="modal-title">Registrar Robot</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="RobotForm" (ngSubmit)="addProduct()">
+          <div class="mb-3">
+            <label for="idRobot" class="form-label">Id del robot</label>
+            <input type="number" id="idRobot" class="form-control" formControlName="IdRobot" required>
+          </div>
+          <div class="mb-3">
+            <label for="alias" class="form-label">Alias</label>
+            <input type="text" id="alias" class="form-control" formControlName="Alias" required>
+          </div>
+          <button type="submit" class="btn btn-success" [disabled]="RobotForm.invalid">Registrar</button>
+          <button type="submit" class="btn-canceled" (click)="closeModal()">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <app-list-robot></app-list-robot>

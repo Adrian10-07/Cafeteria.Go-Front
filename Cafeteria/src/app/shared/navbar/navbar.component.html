@@ -1,0 +1,72 @@
+<div class="navbar">
+  <i class='bx bx-arrow-back icon' (click)="goBack()"></i>
+  
+  <!-- Logo y texto centrado -->
+  <div class="navbar-brand">
+    <div class="logo-container">
+      <img
+        src="go-lang.png"
+        class="navbar-logo"
+        alt="Cafeteria.go logo"
+      />
+      <span class="navbar-title">Cafeteria.go</span>
+    </div>
+  </div>
+  
+  <div class="nav-links">
+    <!-- Ícono de logout -->
+    <i class='bx bx-log-out icon logout' (click)="logout()"></i>
+    <!-- Ícono del menú -->
+    <i class='bx bx-menu icon' (click)="toggleMenu()" *ngIf="isAuthorizedUser()"></i>
+  </div>
+</div>
+
+<div class="dropdown-menu" [class.show]="isMenuOpen">
+  <header>Menu</header>
+  <nav class="sidebar-nav">
+    <ul>
+      <li>
+        <a routerLink="/mesas" class="menu-item">
+          <i class='bx bx-home'></i>
+          <span>Inicio</span>
+        </a>
+      </li>
+      
+      <li class="has-submenu" (click)="toggleSubmenu('admin')">
+        <div class="menu-item">
+          <i class='bx bxs-user-detail'></i>
+          <span>Administradores</span>
+          <i class='bx bx-chevron-down submenu-icon'></i>
+        </div>
+        <ul class="submenu" [class.show]="activeSubmenu === 'admin'">
+          <li><a routerLink="/createCajero"><i class='bx bx-user'></i> Usuarios</a></li>
+        </ul>
+      </li>
+      
+      <li class="has-submenu" (click)="toggleSubmenu('products')">
+        <div class="menu-item">
+          <i class='bx bxs-food-menu'></i>
+          <span>Productos</span>
+          <i class='bx bx-chevron-down submenu-icon'></i>
+        </div>
+        <ul class="submenu" [class.show]="activeSubmenu === 'products'">
+          <li><a routerLink="/productos"><i class='bx bx-list-ul'></i> Lista de Productos</a></li>
+        </ul>
+      </li>
+      
+      <li>
+        <a routerLink="/mesas" class="menu-item">
+          <i class='bx bx-table'></i>
+          <span>Mesas</span>
+        </a>
+      </li>
+      
+      <li>
+        <a routerLink="/pedidos" class="menu-item">
+          <i class='bx bx-clipboard'></i>
+          <span>Pedidos</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

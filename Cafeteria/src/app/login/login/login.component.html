@@ -1,0 +1,25 @@
+<body>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <div class="login-container">
+
+    <div class="text-center">
+      <img
+        src="go-lang.png"
+        class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+        width="200px"
+        alt="profile"
+      />
+    </div>
+    <h1>Bienvenido a Cafeteria.Go</h1>
+    <p>Elige una opción para continuar</p>
+    <div class="buttons">
+      <button class="order-btn" (click)="goToTables()">Ordenar</button>
+    </div>
+    <div class="admin-a-container">
+        <a class="admin-a" (click)="goToLoginAdmin()">Administrador</a>
+      </div>
+  </div>
+</body>

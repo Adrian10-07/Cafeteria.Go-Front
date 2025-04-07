@@ -1,0 +1,24 @@
+.pedido-card {
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #fafafa;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+  
+  .info-gral p {
+    margin: 4px 0;
+  }
+  
+  .detalle-table table {
+    width: 100%;
+    margin-top: 12px;
+    border-collapse: collapse;
+  }
+  
+  .detalle-table th,
+  .detalle-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  

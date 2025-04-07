@@ -1,0 +1,28 @@
+.create-table-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.create-table-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ced11d;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 1em 3em;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.create-table-btn:hover {
+  background-color: #efed7f;
+}
+
+.material-symbols-outlined {
+  font-size: 20px;
+}

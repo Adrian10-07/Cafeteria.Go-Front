@@ -1,1 +1,6 @@
-<app-list-table></app-list-table>
+<app-navbar *ngIf="showNavbar"></app-navbar>
+
+<div class="app-container">
+    <router-outlet></router-outlet>
+    <app-footer *ngIf="showNavbar"></app-footer>
+</div>
