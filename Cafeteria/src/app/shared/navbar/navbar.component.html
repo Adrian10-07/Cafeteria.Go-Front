@@ -1,23 +1,24 @@
 <div class="navbar">
-    <i class='bx bx-arrow-back icon' (click)="goBack()" ></i>
-    <div class="nav-links">
-      <i class='bx bx-menu icon' ></i>
-    </div>
+  <i class='bx bx-arrow-back icon' (click)="goBack()"></i>
+  <div class="nav-links">
+    <!-- Ícono de logout -->
+    <i class='bx bx-log-out icon logout' (click)="logout()"></i>
+    <!-- Ícono del menú -->
+    <i class='bx bx-menu icon'></i>
   </div>
-  
-  <div  class="dropdown-menu">
-    <header>Menu</header>
-    <nav class="sidebar-nav">
-      <ul>
-        <li>
-          <ul class="nav-flyout">
-            <a routerLink="/terminales"><i class='bx bx-home bx-tada' ></i> <span>Inicio</span></a>
-              <i class='bx bxs-user-detail'></i> 
-              <span>Administradores</span>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  
- 
+</div>
+
+<div class="dropdown-menu">
+  <header>Menu</header>
+  <nav class="sidebar-nav">
+    <ul>
+      <li>
+        <ul class="nav-flyout">
+          <a routerLink="/terminales"><i class='bx bx-home bx-tada'></i> <span>Inicio</span></a>
+          <i class='bx bxs-user-detail'></i>
+          <span>Administradores</span>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
