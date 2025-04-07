@@ -15,7 +15,7 @@ const routes: Routes = [
  {path:'mesas', component: ListTableComponent},
  {path:'productos', component: ListProductComponent},
  {path: 'chat', component: ChatComponent},
- {path: 'registroUser', component:RegisterComponent },
+ {path: 'registroUser', component:RegisterComponent},
  {path: 'robots', component: CreateRobotComponent},
  {path: 'pedidos', component: PedidosListComponent },
  {path: 'loginAdmin', component: LoginAdminComponent},

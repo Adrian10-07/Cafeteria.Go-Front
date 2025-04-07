@@ -18,7 +18,7 @@ export class ListProductComponent {
   isModalOpen: boolean = false;
   selectedProduct: Product | null = null;
 
-  nombreCliente = localStorage.getItem('userName') || '';  
+  nombreCliente = localStorage.getItem('userName') || '';
   idMesa = parseInt(localStorage.getItem('IdMesa') || '0');
 
   constructor(
@@ -27,8 +27,14 @@ export class ListProductComponent {
   ) {}
 
   ngOnInit() {
-    this.loadProducts(); 
+    this.loadProducts();
   }
+  
+  isAuthorizedUser(): boolean {
+    const userType = localStorage.getItem('user_type');
+    return userType === 'Administrador' || userType === 'Cajero';
+  }
+  
 
   loadProducts() {
     this.serviceProductService.getProducts().subscribe((data: Product[]) => {
@@ -41,10 +47,10 @@ export class ListProductComponent {
 
     if (index === -1) {
       this.selectedProductIds = [...this.selectedProductIds, product.IdProducto];
-      this.selectedProducts.push(product);  
+      this.selectedProducts.push(product);
     } else {
       this.selectedProductIds = this.selectedProductIds.filter(id => id !== product.IdProducto);
-      this.selectedProducts = this.selectedProducts.filter(p => p.IdProducto !== product.IdProducto);  
+      this.selectedProducts = this.selectedProducts.filter(p => p.IdProducto !== product.IdProducto);
     }
   }
 
@@ -67,7 +73,7 @@ export class ListProductComponent {
     if (this.selectedProduct) {
       this.selectedProducts.push(this.selectedProduct);
       console.log('Producto añadido al pedido:', this.selectedProduct);
-      this.closeModal(); // Cerrar el modal después de añadir el producto
+      this.closeModal(); 
     }
   }
 
@@ -96,7 +102,7 @@ export class ListProductComponent {
       this.servicePedidosService.createPedido(pedido).subscribe(
         response => {
           console.log('Pedido creado con éxito. Respuesta completa:', response);
-      
+
           if (response && response.error) {
             console.error('Error en la respuesta:', response.error);
             Swal.fire({
@@ -107,21 +113,21 @@ export class ListProductComponent {
             });
             return;
           }
-      
           Swal.fire({
             title: '¡Pedido realizado con éxito!',
             text: `Total: $${pedido.Total}`,
             icon: 'success',
             confirmButtonText: 'Aceptar'
           });
-      
-          this.selectedProducts = []; 
+
+
+          this.selectedProducts = [];
         },
         error => {
           console.error('Error al crear el pedido:', error);
-      
+
           let errorMessage = error.error?.message || 'Hubo un error al realizar el pedido. Intenta nuevamente.';
-      
+
           Swal.fire({
             title: '¡Error!',
             text: errorMessage,
@@ -130,7 +136,7 @@ export class ListProductComponent {
           });
         }
       );
-      
+
     } else {
       // Si no hay productos seleccionados, mostrar un mensaje de advertencia
       Swal.fire({
@@ -141,7 +147,7 @@ export class ListProductComponent {
       });
     }
   }
-  
+
   iconMap: { [key: string]: string } = {
     'Bebidas frías': 'water_full',
     'Bebidas calientes': 'local_cafe',
@@ -149,9 +155,9 @@ export class ListProductComponent {
     'Desayuno': 'egg_alt',
     'Comida': 'dinner_dining'
   };
-  
+
   getProductIcon(type: string): string {
     return this.iconMap[type] || 'fastfood';
   }
-  
+
 }

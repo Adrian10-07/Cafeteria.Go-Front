@@ -16,7 +16,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { RobotsModule } from './robots/robots.module';
 import { PedidosModule } from './pedidos/pedidos.module';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button'; // Para los botones
+import { MatCardModule } from '@angular/material/card';     // Opcional para estructura
 import { UsersModule } from './users/users.module';
+
 
 
 @NgModule({
@@ -39,6 +44,7 @@ import { UsersModule } from './users/users.module';
     CommonModule,
     RobotsModule,
     PedidosModule,
+    FormsModule,
     UsersModule
   ],
   providers: [

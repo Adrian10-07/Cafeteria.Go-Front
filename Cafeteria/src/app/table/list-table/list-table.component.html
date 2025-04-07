@@ -5,7 +5,7 @@
     <h2>Ingresa tu nombre</h2>
     <input type="text" [(ngModel)]="userName" placeholder="Tu nombre">
     <div class="modal-buttons">
-      <button  (click)="selectedMesaId ? deleteMesa(selectedMesaId) : null">Eliminar</button>
+      <button  (click)="selectedMesaId ? deleteMesa(selectedMesaId) : null" *ngIf="isAuthorizedUser()">Eliminar</button>
       <button (click)="closeModal()" class="cancelar">Cancelar</button>
       <button (click)="proceedOrder()">Ordenar</button>
     </div>
@@ -14,7 +14,7 @@
 
 <div class="mesas-container">
   <h1>Mesas</h1> 
-  <app-create-table (mesaCreada)="getMesas()"></app-create-table>
+  <app-create-table (mesaCreada)="getMesas() "*ngIf="isAuthorizedUser()"></app-create-table>
   <div class="container">
     <div *ngFor="let mesa of mesas" class="card"(click)="mesa.IdMesa ? openModal(mesa.IdMesa) : null">
       <div class="card-body" >

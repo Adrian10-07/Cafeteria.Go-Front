@@ -1,8 +1,13 @@
+
+<app-create-product></app-create-product>
 <div class="container-list">
-  <div class="create-product">
+  <div class="create-product" *ngIf="isAuthorizedUser()">
     <app-create-product></app-create-product>
   </div>
-  
+    <div>
+    <!-- <app-end-table></app-end-table> -->
+    </div>
+
   <div class="add-product">
     <select class="select" [(ngModel)]="selectedType">
       <option value="">Todos</option>
@@ -13,21 +18,21 @@
       <option value="Comida">Comida</option>
     </select>
   </div>
-  
+
   <div class="product-list">
-    <div 
+    <div
       *ngFor="let product of getFilteredProducts()"
       class="card"
       [class.selected]="selectedProductIds.includes(product.IdProducto)"
       (click)="openProductModal(product)"
     >
       <span class="material-symbols-outlined">{{ getProductIcon(product.Tipo) }}</span>
-      
+
       <h3>{{ product.Nombre }}</h3>
       <p>Precio: ${{ product.Precio }}</p>
     </div>
   </div>
-  
+
   <div class="modal" [class.show]="isModalOpen" (click)="closeModal()" *ngIf="isModalOpen">
     <div class="modal-content" (click)="$event.stopPropagation()">
       <span class="close-btn" (click)="closeModal()">&times;</span>
@@ -37,10 +42,9 @@
       <button (click)="addToOrder()">Añadir al Pedido</button>
     </div>
   </div>
-  
+
   <div class="selected-count">
     Productos seleccionados: <strong>{{ selectedProducts.length }}</strong>
     <button (click)="placeOrder()" class="bt-pedido">Realizar Pedido</button>
   </div>
-  
-</div>
+
