@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { FormsModule } from '@angular/forms';
 import { DatellesProductoComponent } from './datelles-producto/datelles-producto.component';
+import { EndTableComponent } from '../table/end-table/end-table.component';
+import { TableModule } from '../table/table.module';
 
 
 @NgModule({
@@ -13,12 +15,14 @@ import { DatellesProductoComponent } from './datelles-producto/datelles-producto
     ListProductComponent,
     CreateProductComponent,
     UpdateProductComponent,
-    DatellesProductoComponent
+    DatellesProductoComponent,
+    
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    TableModule
     
   ]
 })

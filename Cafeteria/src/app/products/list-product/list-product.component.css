@@ -136,7 +136,7 @@ body {
 
 .modal-content button {
   width: 100%;
-  background: #78f00f;
+  background: #f0f26d;
   color: white;
   border: none;
   padding: 8px;
@@ -147,7 +147,7 @@ body {
 }
 
 .modal-content button:hover {
-  background: #51f14b;
+  background: #ced11d;
 }
 
 /* Contador de productos seleccionados */
