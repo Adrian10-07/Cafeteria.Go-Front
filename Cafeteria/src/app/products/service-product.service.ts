@@ -8,7 +8,7 @@ import { Product } from './productModel';
 })
 export class ServiceProductService {
 
-  private apiUrl = 'http://localhost:8080/productos/'; // URL base de la API
+  private apiUrl = 'http://107.23.119.217:8080/productos/'; // URL base de la API
 
   constructor(private http: HttpClient) {}
 

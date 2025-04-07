@@ -1,57 +1,74 @@
 body {
-    font-family: "Jost", sans-serif;
-    background-color: #ffffff;
-    text-align: center;
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f4f9;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    text-align: center;
+}
 
-}
 .login-container {
-    background: #fff;
+    background: #ffffff;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    width: 320px;
 }
+
 h1 {
-    color: #FCCCAC;
+    color: #fdd27b;
     margin-bottom: 10px;
-    font-family: "Jost", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
 }
+
 p {
-    color: #5c3d2e;
+    color: #444;
     margin-bottom: 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
 }
+
 .buttons {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
+
 .order-btn {
-    background-color: #d2691e;
-    color: #f8f1e5;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
+    background-color: #fdfaf9;
+    color: #fdd27b;
+    padding: 14px;
+    border: 2px solid #fdd27b;
+    border-color: #fdd27b;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
 }
+
 .order-btn:hover {
-    background-color: #C67C4E;
+    background-color: #fdd27b;
+    color: white;
 }
-.admin-btn {
-    background-color: #C67C4E;
-    color: #f8f1e5;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
+
+.admin-a-container {
+    text-align: center;
+    margin-top: 15px;
 }
-.admin-btn:hover {
-    background-color: #5d483e;
+
+.admin-a {
+    font-size: 13px;
+    color: #3366cc;
+    text-decoration: underline;
+    font-family: "Roboto", sans-serif;
+    transition: color 0.2s ease;
+}
+
+.admin-a:hover {
+    color: #254c9b;
 }

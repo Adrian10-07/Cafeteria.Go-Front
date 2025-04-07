@@ -1,74 +1,77 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600');
-
-body {
-  font-family: "Lato", sans-serif;
-  font-size: 100%;
-  overflow-y: scroll;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  background-color: #fefefe;
-}
-
+/* Navbar */
 .navbar {
-  background-color: #a37632;
-  width: 100%;
-  height: 100px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  display: flex;
+  background: #885809;
+  color: white;
+  padding: 30px 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-  width: 350px;
-  height: auto;
-  margin-left: 0;
-}
-
-i {
-  font-size: 50px;
-  color: #ffffff;
-  cursor: pointer;
-  transition: border 0.3s ease, transform 0.3s ease;
-  display: flex;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-i:hover {
-  padding: 0.1px;
-  transform: scale(1.1);
-}
-
+/* Contenedor de íconos */
 .nav-links {
   display: flex;
-  gap: 1rem;
+  gap: 20px; /* Espacio entre los íconos */
+  align-items: center; /* Centrar verticalmente los íconos */
 }
 
+/* Iconos del navbar */
+.navbar .icon {
+  font-size: 30px; /* Ajustar el tamaño de los íconos */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Icono de logout */
+.logout {
+  font-size: 30px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logout:hover {
+  color: #ff4c4c; /* Color al pasar el cursor */
+}
+
+/* Icono de menu */
+.navbar .bx-menu:hover {
+  color: #ffcc00;
+}
+
+/* Asegurarse de que los íconos estén alineados correctamente */
+.nav-links i {
+  display: inline-block;
+  padding: 5px;
+}
+/* Estilos para el menú desplegable */
 .dropdown-menu {
-  position: absolute;
-  top: 100px;
-  width: 15em;
-  color: rgb(0, 0, 0);
-  right: 0;
+  position: fixed;
+  top: 60px; /* Ajusta según la altura de tu navbar */
+  right: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  max-height: 500px;
+  padding: 10px 0;
 }
 
 .dropdown-menu header {
-  text-align: center;
-  background-color: white;
-  width: 100%;
-  font-weight: 600;
-  font-family: "Jost", sans-serif;
-}
-
-.sidebar-nav {
-  background-color: #3262A3;
-  font-weight: 400;
-  font-size: 1.2em;
-  overflow: hidden;
-  padding-bottom: 1em;
-  z-index: 9;
-  -webkit-overflow-scrolling: touch;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
 }
 
 .sidebar-nav ul {
@@ -77,400 +80,86 @@ i:hover {
   margin: 0;
 }
 
-.sidebar-nav li {
-  width: 100%;
-}
-
-.sidebar-nav a {
-  color: rgba(255,255,255,0.9);
-  font-size: 0.75em;
-  padding: 1.05em 1em;
-  display: block;
-  transition: all 0.6s ease;
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #333;
   text-decoration: none;
-  font-family: "Jost", sans-serif;
+  cursor: pointer;
 }
 
-.sidebar-nav a:hover {
-  background-color: rgba(255,255,255, 0.05);
-  transition: all 0.6s ease;
+.menu-item:hover {
+  background: #f5f5f5;
 }
 
-.sidebar-nav i {
-  font-size: 1.8em;
-  padding-right: 0.5em;
-  display: inline;
-  vertical-align: middle;
+.menu-item i {
+  margin-right: 10px;
+  font-size: 1.2em;
 }
 
-.nav-flyout {
-  background-color: #1a68a7;
-  z-index: 9;
-  padding-left: 1.5em;
+.has-submenu {
   position: relative;
 }
 
-.nav-flyout a:hover {
-  background-color: rgba(255,255,255, 0.05);
+.submenu-icon {
+  margin-left: auto;
+  transition: transform 0.3s;
 }
 
-@media screen and (max-width: 1024px) {
-  .navbar {
-    gap: 15%;
-    height: 80px;
-  }
-  .logo {
-    width: 150px;
-  }
-  i {
-    font-size: 40px;
-  }
-  .dropdown-menu {
-    width: 12em;
-  }
-  .sidebar-nav a {
-    font-size: 0.6em;
-    padding: 0.85em 1em;
-  }
+.has-submenu.show .submenu-icon {
+  transform: rotate(180deg);
 }
 
-@media screen and (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    height: auto;
-    gap: 1rem;
-  }
-  .nav-links {
-    gap: 0.5rem;
-  }
-  .logo {
-    width: 120px;
-  }
-  i {
-    font-size: 35px;
-  }
-  .dropdown-menu {
-    width: 10em;
-  }
-  .sidebar-nav a {
-    font-size: 0.5em;
-    padding: 0.75em 1em;
-  }
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #f9f9f9;
 }
 
-@media screen and (max-width: 480px) {
-  .navbar {
-    padding: 0.5rem;
-  }
-  .logo {
-    width: 200px;
-  }
-  i {
-    font-size: 30px;
-  }
-  .nav-links {
-    gap: 0.3rem;
-  }
-  .dropdown-menu {
-    top: 300px;
-    bottom: 0;
-    width: 50%;
-  }
-  .sidebar-nav a {
-    font-size: 0.45em;
-    padding: 0.65em 1em;
-  }
+.submenu.show {
+  max-height: 200px;
 }
 
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: "Jost", sans-serif; 
-}
-/* align-items: center;
-text-align: center;
-background-color: #ffffff;
-padding: 2rem;
-width: 600px;
-border-radius: 8px;
-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-font-family: "Jost", sans-serif; */
-.input-modal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  font-family: "Jost", sans-serif;
-}
-
-.input-modal label {
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  font-family: "Jost", sans-serif;
-}
-
-.input-modal input {
-  width: 100%;
-  height: 30px;
-  padding: 0.5em 2em;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2);
-  font-family: "Jost", sans-serif;
-  font-size: 16px;
-  text-align: center;
-}
-
-.button-group {
-  display: flex;
-  gap: 2rem;
-  margin-top: 1rem;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  background: rgba(57, 110, 183, 1);
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: "Jost", sans-serif;
-}
-
-button:hover {
-  background: #0056b3;
-}
-
-h2 {
-  font-family: "Jost", sans-serif;
-}
-.terminales-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2vw;
-  justify-content: center;
-  padding: 2vw;
-  width: 100%;
-  max-width: 1200px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 1px;
-  background-color: #ffffff;
-  border: rgb(217, 217, 217) 0.2px solid;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: calc(25% - 2vw);
-  max-width: 328px;
-  height: 170px;
-  border-radius: 10px;
-  color: black;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  background-color: rgb(255, 255, 255);
-  border: rgba(63, 63, 63, 0.189) 0.2px solid;
-  cursor: pointer;
-}
-
-.card:hover {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.584);
-}
-
-.action-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:inherit;
-  gap: 0.5rem;
-  margin-top: 0rem;
-}
-
-.action-button {
+.submenu li a {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: "Jost", sans-serif;
-  font-size: 24px;
-  height: 60px;
-  width: calc(90% - 1rem);
-  max-width: 300px;
-  justify-content: space-between;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border: rgb(217, 217, 217) 0.2px solid;
-}
-
-.action-button i {
-  margin-left: 0.5rem;
-  font-size: 40px;
-}
-
-.action-button a {
+  padding: 10px 20px 10px 40px;
+  color: #555;
   text-decoration: none;
-  color: black;
 }
 
-.action-button:hover {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.584);
-}
-i{
-  font-size: 50px;
+.submenu li a:hover {
+  background: #eee;
 }
 
-.card-name {
-  font-size: 30px;
-  margin-top: 0.2rem;
-  font-family: "Jost", sans-serif;
+.submenu li a i {
+  font-size: 1em;
+  margin-right: 8px;
 }
 
-.card-email {
-  font-size: 16px;
-  color: gray;
-  font-family: "Jost", sans-serif;
+.navbar-logo {
+  width: 80px; /* Tamaño similar a un ícono */
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-h1 {
-  font-family: "Jost", sans-serif;
-  margin-left: 0;
-  text-align: center;
-}
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+.logo-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 1000;
+  gap: 8px;
 }
-
-.modal-content {
-  align-items: center;
-  text-align: center;
-  background-color: #ffffff;
-  padding: 2rem;
-  width: 600px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: "Jost", sans-serif;
-}
-
-h1 {
-  font-family: "Jost", sans-serif;
-  font-size: 24px;
-  margin-bottom: 1rem;
-}
-
-.form-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.input-group {
-  display: flex;
-  gap: 1rem;
-}
-
-.input-group input,
-.input-group textarea {
-  flex: 1;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.219);
-  font-family: "Jost", sans-serif;
-  font-size: 16px;
-}
-
-textarea {
-  height: 50px;
-}
-
-.modal-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.modal-buttons button {
-  padding: 0.5rem 1rem;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 180px;
-  height: 50px;
-}
-
-.modal-buttons .edit {
-  background-color: #3262a3;
+.navbar-title {
   color: white;
-}
-
-.modal-buttons .delete {
-  background-color: #a33232;
-  color: white;
-}
-
-@media screen and (max-width: 1024px) {
-  .card {
-    width: calc(33% - 2vw);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .card {
-    width: calc(50% - 2vw);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .card {
-    width: 100%;
-  }
-  .card-name {
-    font-size: 24px;
-  }
-  .card-icon img {
-    width: 60px;
-    height: 60px;
-  }
+  font-weight: bold;
+  font-size: 2rem;
+  white-space: nowrap;
 }

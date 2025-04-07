@@ -9,7 +9,7 @@ import { Mesa } from './tableModel';
 })
 export class MesaService {
 
-  private apiUrl = 'http://localhost:8080/mesa/'; // URL de la API
+  private apiUrl = 'http://107.23.119.217:8080/mesa/'; // URL de la API
 
   constructor(private http: HttpClient) { }
 
@@ -24,13 +24,13 @@ export class MesaService {
   }
 
   // Obtener mesa por ID
-  getMesaById(idMesa: number): Observable<Mesa> {
-    return this.http.get<Mesa>(`${this.apiUrl}/idMesa?idMesa=${idMesa}`);
+  getMesaById(IdMesa: number): Observable<Mesa> {
+    return this.http.get<Mesa>(`${this.apiUrl}${IdMesa}`);
   }
 
   // Actualizar mesa
   updateMesa(idMesa: number, mesa: Mesa): Observable<Mesa> {
-    return this.http.put<Mesa>(`${this.apiUrl}/${idMesa}`, mesa);
+    return this.http.put<Mesa>(`${this.apiUrl}${idMesa}`, mesa);
   }
 
   // Eliminar mesa

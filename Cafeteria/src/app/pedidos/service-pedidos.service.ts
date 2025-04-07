@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ServicePedidosService {
 
-  private apiUrl = 'http://localhost:8080/pedidos'; // Reemplaza con la URL correcta de tu API
+  private apiUrl = 'http://107.23.119.217:8080/pedidos';
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +23,7 @@ export class ServicePedidosService {
 
   // Obtener todos los pedidos
   getAllPedidos(): Observable<any> {
-    return this.http.get(this.apiUrl);
+    return this.http.get(`${this.apiUrl}/`);
   }
 
   // Obtener un pedido por su ID

@@ -1,160 +1,207 @@
-/* Estilos generales */
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  margin: 0;
+  padding: 20px;
 }
 
+.create-product {
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Estilo del select */
+.add-product {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ced11d;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #00b31e;
+}
+
+/* Estilos de la lista de productos */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 productos por fila */
+  gap: 12px;
+  padding: 10px;
+}
+
+/* Ajustar tamaño de las cards */
 .card {
-  color: #ddd;
-  background-color: #ad9454;
-  width: 200px;
-  padding: 15px;
-  border: 1px solid #ddd;
+  background: rgb(255, 255, 255);
   border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 12px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 4px 4px 10px rgba(255, 192, 2, 0.2);
-  background-color: #c7a86b;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .card.selected {
-  border: 2px solid #ffd700;
-  background-color: #c7a86b;
+  border: 2px solid #1e64af;
+  background: #e3f2fd;
 }
 
-select {
-  padding: 10px;
-  font-size: 16px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  width: 100%; /* Cambiado para ser más flexible */
-  max-width: 300px; /* Limitar el tamaño máximo */
-  transition: border-color 0.3s ease;
+.material-symbols-outlined {
+  font-size: 24px; /* Ícono más pequeño */
+  color: #ced11d;
 }
 
-select:hover {
-  border-color: #ffd700;
+.card h3 {
+  font-size: 14px;
+  margin: 8px 0;
 }
 
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #ffd700;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-  width: 100%;
-  max-width: 250px; 
-  align-items: center;
-  left: 100%;
-}
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2vw;
-  justify-content: center;
-  padding: 2vw;
-  width: 100%;
-  max-width: 1200px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 1px;
-  background-color: #ffffff;
-  border: rgb(217, 217, 217) 0.2px solid;
-}
-button:hover {
-  background-color: #e6c200;
+.card p {
+  font-size: 12px;
+  color: #666;
 }
 
-.selected-count {
-  font-size: 18px;
-  margin: 10px 0;
-  color: #333;
-  font-weight: bold;
-}
-
-/* Modal */
+/* MODAL MINIMALISTA */
 .modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal.show {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-content {
-  background-color: #fff;
-  padding: 20px;
+  background: white;
+  width: 300px;
+  padding: 15px;
   border-radius: 8px;
-  max-width: 400px;
-  width: 100%;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease-out;
 }
 
 .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
+  color: #666;
+  float: right;
+  border: none;
+  background: none;
 }
 
-/* Responsive */
+.close-btn:hover {
+  color: red;
+}
+
+.modal-content h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.modal-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  width: 100%;
+  background: #f0f26d;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modal-content button:hover {
+  background: #ced11d;
+}
+
+/* Contador de productos seleccionados */
+.selected-count {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.selected-count strong {
+  color: #ced11d;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE: Ajustar número de columnas según el tamaño de pantalla */
+@media (max-width: 1024px) {
+  .product-list {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas medianas */
+  }
+}
+
 @media (max-width: 768px) {
-  .card {
-    width: 150px; 
-  }
-
-  select {
-    max-width: 100%; 
-  }
-
-  button {
-    max-width: 100%; 
+  .product-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
   }
 }
 
 @media (max-width: 480px) {
   .product-list {
-    gap: 5px; 
-  }
-
-  .card {
-    width: 100%; 
-  }
-
-  select {
-    font-size: 14px; 
-  }
-
-  button {
-    padding: 8px 16px; 
-
-  .selected-count {
-    font-size: 16px; 
+    grid-template-columns: repeat(1, 1fr); /* 1 columna en móviles */
   }
 }
-}
 
-.material-symbols-outlined{
-  font-size: 50px;
+
+.bt-pedido{
+  margin-left: 10px;
+  color: white;
+  background-color: khaki;
+  border: none;
+  font-size: 1em 2em;
+  border-radius: 15px;
+  padding: 10px;
+}
+.container-list{
+  margin: 20px;
 }
