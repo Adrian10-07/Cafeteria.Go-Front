@@ -7,7 +7,7 @@ import { ChatComponent } from './websocket/chat/chat.component';
 import { RegisterComponent } from './login/register/register.component';
 import { CreateRobotComponent } from './robots/create-robot/create-robot.component';
 import { PedidosListComponent } from './pedidos/pedidos-list/pedidos-list.component';
-import { CreateUserComponent } from './users/create-user/create-user.component';
+import { LoginAdminComponent } from './login/login-admin/login-admin.component';
 
 
 const routes: Routes = [
@@ -18,7 +18,8 @@ const routes: Routes = [
  {path: 'registroUser', component:RegisterComponent },
  {path: 'robots', component: CreateRobotComponent},
  {path: 'pedidos', component: PedidosListComponent },
- {path: 'addUser', component: CreateUserComponent},
+ {path: 'loginAdmin', component: LoginAdminComponent},
+ {path: 'createCajero', component: RegisterComponent},
 ];
 
 @NgModule({

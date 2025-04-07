@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../service-users.service';
+import { ServiceUsersService } from '../../users/service-users.service';
+import { User } from '../../users/user';
 
 @Component({
   selector: 'app-register',
@@ -8,23 +9,35 @@ import { UserService } from '../service-users.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  registerForm: FormGroup;
+ UserForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
-    this.registerForm = this.fb.group({
+  constructor(
+    private userService: ServiceUsersService,
+    private fb: FormBuilder
+  ) {
+    this.UserForm = this.fb.group({
       name: ['', Validators.required],
       last_name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      user_type: ['Cajero', Validators.required],
     });
   }
 
-  registerUser() {
-    if (this.registerForm.valid) {
-      this.userService.registerUser(this.registerForm.value).subscribe({
-        next: () => alert('Usuario registrado con éxito'),
-        error: () => alert('Error al registrar usuario'),
+  addUser() {
+    if (this.UserForm.valid) {
+      const newUser: User = this.UserForm.value;
+      this.userService.save(newUser).subscribe({
+        next: () => {
+          alert('Usuario agregado con éxito');
+          console.log('Usuario agregado con éxito', newUser);
+
+          this.UserForm.reset();
+        },
+        error: (err) => console.error('Error al agregar usuario', err),
       });
+    } else {
+      alert('Por favor, completa todos los campos requeridos.');
     }
   }
 }
