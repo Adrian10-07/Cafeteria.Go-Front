@@ -29,7 +29,7 @@ export class PedidosListComponent implements OnInit {
   }
 
   iniciarWebSocket(): void {
-    const socket = new WebSocket('ws://localhost:3010/ws');
+    const socket = new WebSocket('ws://54.81.41.160:3010/ws');
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);

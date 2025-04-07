@@ -1,8 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ServicePedidosService } from '../service-pedidos.service';
-import { Pedido } from './pedido'; // asegúrate de tener el path correcto
-
+import { Pedido } from '../pedido.model';
 @Component({
   selector: 'app-pedido-modal',
   templateUrl: './pedido-modal.component.html',
@@ -20,22 +19,25 @@ export class PedidoModalComponent implements OnInit {
   ngOnInit(): void {
     this.pedidosService.getPedidoById(this.data.idPedido).subscribe({
       next: (data) => {
+        const pedidoRaw = Array.isArray(data) ? data[0] : data;
+  
         this.pedido = {
-          IdPedido: data.IdPedido,
-          IdMesa: data.IdMesa,
-          Nombre_cliente: data.Nombre_cliente,
-          Status: data.Status,
-          Total: data.Total
+          IdPedido: pedidoRaw.IdPedido,
+          IdMesa: pedidoRaw.IdMesa,
+          Nombre_cliente: pedidoRaw.Nombre_cliente,
+          Status: pedidoRaw.Status,
+          Total: pedidoRaw.Total,
+          Detalles: pedidoRaw.Detalles ?? []
         };
-        console.log(data);
-
-      }
-      ,
+  
+        console.log('Pedido procesado:', this.pedido);
+      },
       error: (err) => {
         console.error('Error al obtener pedido:', err);
       }
     });
   }
+  
 
   aceptar(): void {
     const mensaje = { status: 'ok' };

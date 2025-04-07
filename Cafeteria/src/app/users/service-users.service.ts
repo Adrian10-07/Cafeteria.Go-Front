@@ -7,7 +7,7 @@ import { User } from './user'; // Assuming you have a User model
   providedIn: 'root'
 })
 export class ServiceUsersService {
-  private apiUrl = 'http://localhost:8080/usuarios/'; // Base API URL
+  private apiUrl = 'http://107.23.119.217:8080/usuarios/'; // Base API URL
 
   constructor(private http: HttpClient) { }
 

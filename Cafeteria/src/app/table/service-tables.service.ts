@@ -9,7 +9,7 @@ import { Mesa } from './tableModel';
 })
 export class MesaService {
 
-  private apiUrl = 'http://localhost:8080/mesa/'; // URL de la API
+  private apiUrl = 'http://107.23.119.217:8080/mesa/'; // URL de la API
 
   constructor(private http: HttpClient) { }
 
