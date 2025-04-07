@@ -1,7 +1,7 @@
 export interface Pedido {
-  idPedido: number;
-  idMesa: number;
-  nombre_cliente: string;
-  status: string;
-  total: number;
+  IdPedido: number;
+  IdMesa: number;
+  Nombre_cliente: string;
+  Status: string;
+  Total: number;
 }
