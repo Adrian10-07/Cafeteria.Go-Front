@@ -1,46 +1,56 @@
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  main {
-    flex: 2;
-  }
-  
+/* Estilos generales */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Viewport Height completo */
+}
+
+.main-content {
+  flex: 1; /* Esto hace que el contenido principal ocupe todo el espacio disponible */
+  padding-bottom: 20px; /* Espacio antes del footer */
+}
+
+/* Estilos del footer */
+.footer {
+  background-color: #885809; /* Color de fondo oscuro */
+  color: white;
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer div {
+  padding: 10px;
+  text-align: center;
+}
+
+.part1, .part3 {
+  flex: 1;
+  min-width: 300px;
+}
+
+.part2 {
+  flex: 2;
+  min-width: 300px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
   .footer {
-    background: #885809;
-    color: white;
+    flex-direction: column;
     text-align: center;
-    padding: 15px;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    position: relative;
-    bottom: 0;
+  }
+  
+  .footer div {
     width: 100%;
+    padding: 5px 0;
   }
-  
-  /* Distribución de las partes */
-  .part1, .part2, .part3 {
-    flex: 1;
-    padding: 8px;
-  }
-  
-  /* Responsive: Ajustar en pantallas pequeñas */
-  @media (max-width: 768px) {
-    .footer {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .part1, .part2, .part3 {
-      width: 100%;
-      padding: 5px 0;
-    }
-  }
-  
+}

@@ -9,17 +9,18 @@ import { CreateRobotComponent } from './robots/create-robot/create-robot.compone
 import { PedidosListComponent } from './pedidos/pedidos-list/pedidos-list.component';
 import { LoginAdminComponent } from './login/login-admin/login-admin.component';
 import { MenuComponent } from './shared/menu/menu.component';
+import { authGuard } from './auth.guard';
 
 
 const routes: Routes = [
  {path:'',component: LoginComponent},
- {path:'loginAdmin', component: LoginAdminComponent},
+ {path:'loginAdmin', component: LoginAdminComponent },
  {path:'mesas', component: ListTableComponent},
  {path:'productos', component: ListProductComponent},
- {path: 'chat', component: ChatComponent},
- {path: 'robots', component: CreateRobotComponent},
- {path: 'pedidos', component: PedidosListComponent },
- {path: 'createCajero', component: RegisterComponent},
+ {path: 'chat', component: ChatComponent, canActivate: [authGuard]},
+ {path: 'robots', component: CreateRobotComponent, canActivate: [authGuard]},
+ {path: 'pedidos', component: PedidosListComponent , canActivate: [authGuard]},
+ {path: 'createCajero', component: RegisterComponent, canActivate: [authGuard]},
  {path: 'menu', component:MenuComponent}
 ];
 

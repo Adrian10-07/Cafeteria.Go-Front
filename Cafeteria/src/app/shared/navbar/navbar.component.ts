@@ -1,14 +1,36 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  isMenuOpen = false;
+  activeSubmenu: string | null = null;
+
   constructor(private router: Router) {}
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    if (!this.isMenuOpen) {
+      this.activeSubmenu = null;
+    }
+  }
+  isAuthorizedUser(): boolean {
+    const userType = localStorage.getItem('user_type');
+    return userType === 'Administrador' || userType === 'Cajero';
+  }
+
+  toggleSubmenu(submenu: string) {
+    if (this.activeSubmenu === submenu) {
+      this.activeSubmenu = null;
+    } else {
+      this.activeSubmenu = submenu;
+    }
+  }
 
   logout() {
     Swal.fire({
@@ -33,9 +55,7 @@ export class NavbarComponent {
     });
   }
 
-
   goBack() {
-    window.history.back(); // Retrocede en la navegación
+    window.history.back();
   }
-
 }
