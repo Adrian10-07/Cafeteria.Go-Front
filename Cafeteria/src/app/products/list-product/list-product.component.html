@@ -1,4 +1,13 @@
+
 <app-create-product></app-create-product>
+<div class="container-list">
+  <div class="create-product" *ngIf="isAuthorizedUser()">
+    <app-create-product></app-create-product>
+  </div>
+    <div>
+    <!-- <app-end-table></app-end-table> -->
+    </div>
+
   <div class="add-product">
     <select class="select" [(ngModel)]="selectedType">
       <option value="">Todos</option>
@@ -13,7 +22,7 @@
   <div class="product-list">
     <div
       *ngFor="let product of getFilteredProducts()"
-      class="card"    
+      class="card"
       [class.selected]="selectedProductIds.includes(product.IdProducto)"
       (click)="openProductModal(product)"
     >

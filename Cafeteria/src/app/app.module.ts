@@ -10,15 +10,18 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ChatComponent } from './websocket/chat/chat.component';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { RobotsModule } from './robots/robots.module';
 import { PedidosModule } from './pedidos/pedidos.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button'; // Para los botones
 import { MatCardModule } from '@angular/material/card';     // Opcional para estructura
+import { UsersModule } from './users/users.module';
+
 
 
 @NgModule({
@@ -42,7 +45,7 @@ import { MatCardModule } from '@angular/material/card';     // Opcional para est
     RobotsModule,
     PedidosModule,
     FormsModule,
-
+    UsersModule
   ],
   providers: [
     provideAnimationsAsync()

@@ -41,3 +41,8 @@
   font-size: 25px;
   margin: 2px;
 }
+.btn-primary{
+  color: black;
+background-color: white;
+border-color: #ced11d;
+}

@@ -29,6 +29,12 @@ export class ListProductComponent {
   ngOnInit() {
     this.loadProducts();
   }
+  
+  isAuthorizedUser(): boolean {
+    const userType = localStorage.getItem('user_type');
+    return userType === 'Administrador' || userType === 'Cajero';
+  }
+  
 
   loadProducts() {
     this.serviceProductService.getProducts().subscribe((data: Product[]) => {
@@ -67,7 +73,7 @@ export class ListProductComponent {
     if (this.selectedProduct) {
       this.selectedProducts.push(this.selectedProduct);
       console.log('Producto añadido al pedido:', this.selectedProduct);
-      this.closeModal(); // Cerrar el modal después de añadir el producto
+      this.closeModal(); 
     }
   }
 

@@ -6,14 +6,16 @@ import { Robots } from '../robots';
 @Component({
   selector: 'app-create-robot',
   templateUrl: './create-robot.component.html',
-  styleUrl: './create-robot.component.css'
+  styleUrl: './create-robot.component.css',
 })
 export class CreateRobotComponent {
-
   RobotForm: FormGroup;
   showModal = false; // Controla la visibilidad del modal
 
-  constructor(private robotService: ServiceRobotsService, private fb: FormBuilder) {
+  constructor(
+    private robotService: ServiceRobotsService,
+    private fb: FormBuilder
+  ) {
     this.RobotForm = this.fb.group({
       IdRobot: ['', Validators.required],
       Alias: ['', Validators.required],
@@ -22,14 +24,13 @@ export class CreateRobotComponent {
 
   openModal() {
     this.showModal = true;
-    document.body.style.overflow = "hidden"; // Evita el scroll
+    document.body.style.overflow = 'hidden'; // Evita el scroll
   }
-  
+
   closeModal() {
     this.showModal = false;
-    document.body.style.overflow = "auto"; // Restaura el scroll
+    document.body.style.overflow = 'auto'; // Restaura el scroll
   }
-  
 
   addProduct() {
     if (this.RobotForm.valid) {
@@ -40,7 +41,7 @@ export class CreateRobotComponent {
           this.RobotForm.reset();
           this.closeModal();
         },
-        error: (err) => console.error('Error al agregar Robot', err)
+        error: (err) => console.error('Error al agregar Robot', err),
       });
     }
   }

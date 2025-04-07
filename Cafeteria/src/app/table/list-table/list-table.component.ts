@@ -22,6 +22,11 @@ export class ListTableComponent implements OnInit {
     this.getMesas();
   }
 
+  isAuthorizedUser(): boolean {
+    const userType = localStorage.getItem('user_type');
+    return userType === 'Administrador' || userType === 'Cajero';
+  }
+  
   getMesas(): void {
     this.loading = true;
     this.mesaService.getAllMesas().subscribe({
@@ -77,8 +82,32 @@ export class ListTableComponent implements OnInit {
       localStorage.setItem('userName', this.userName);
       localStorage.setItem('IdMesa', this.selectedMesaId!.toString());
   
-      this.router.navigate(['/productos']);
-      this.closeModal();
+      // 1. Buscar la mesa seleccionada
+      const selectedMesa = this.mesas.find(mesa => mesa.IdMesa === this.selectedMesaId);
+      if (selectedMesa) {
+        // 2. Cambiar el estado de la mesa a "ocupado"
+        const updatedMesa = { ...selectedMesa, Status: 'ocupada' };
+  
+        // 3. Hacer PUT para actualizarla
+        this.mesaService.updateMesa(this.selectedMesaId!, updatedMesa).subscribe({
+          next: () => {
+            // 4. Navegar y cerrar modal solo si la actualización fue exitosa
+            this.router.navigate(['/productos']);
+            this.closeModal();
+          },
+          error: (err) => {
+            console.error('Error al actualizar la mesa:', err);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se pudo actualizar el estado de la mesa. Intenta de nuevo.',
+              confirmButtonColor: '#d33'
+            });
+          }
+        });
+      } else {
+        console.warn('No se encontró la mesa seleccionada.');
+      }
     } else {
       Swal.fire({
         icon: 'warning',
@@ -88,7 +117,8 @@ export class ListTableComponent implements OnInit {
         confirmButtonColor: '#3085d6'
       });
     }
-  } 
+  }
+   
   openModal(IdMesa: number): void {
     this.selectedMesaId = IdMesa; 
     this.showModal = true; 
