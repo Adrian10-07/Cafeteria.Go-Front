@@ -16,6 +16,9 @@ import { CommonModule } from '@angular/common';
 import { RobotsModule } from './robots/robots.module';
 import { PedidosModule } from './pedidos/pedidos.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button'; // Para los botones
+import { MatCardModule } from '@angular/material/card';     // Opcional para estructura
 
 
 @NgModule({
@@ -39,6 +42,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RobotsModule,
     PedidosModule,
     FormsModule,
+
   ],
   providers: [
     provideAnimationsAsync()

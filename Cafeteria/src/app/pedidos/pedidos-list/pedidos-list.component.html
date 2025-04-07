@@ -1,24 +1,6 @@
-<div class="container">
-    <h2>Lista de Pedidos</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Mesa</th>
-          <th>Numero De Pedido</th>
-          <th>Nombre del cliente</th>
-          <th>Status</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let pedido of pedidos">
-          <td>{{ pedido.IdPedido }}</td>
-          <td>{{ pedido.IdMesa }}</td>
-          <td>{{ pedido.Nombre_cliente}}</td>
-          <td>{{ pedido.Status }}</td>
-          <td>{{pedido.Total}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+<!-- Solo botón para simular el WebSocket y mostrar el modal -->
+<div class="main-container">
+  <button mat-raised-button color="primary" (click)="abrirModalPrueba()">
+    Probar Modal de Pedido
+  </button>
+</div>
