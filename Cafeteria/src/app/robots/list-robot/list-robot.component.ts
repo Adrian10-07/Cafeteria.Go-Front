@@ -7,7 +7,6 @@ import { ServiceRobotsService } from '../service-robots.service';
   templateUrl: './list-robot.component.html',
   styles: [
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "src/styles.css"
 ]})
 export class ListRobotComponent {
 robots: Robots[] = [];
