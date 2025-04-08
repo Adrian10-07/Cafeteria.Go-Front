@@ -7,7 +7,7 @@ export interface DetallesPedido {
   }
   
   export interface Pedido {
-    IdPedido: number;
+    IdPedido: string;
     IdMesa: number;
     Nombre_cliente: string;
     Status: string;
