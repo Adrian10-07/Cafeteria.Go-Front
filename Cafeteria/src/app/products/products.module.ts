@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { DatellesProductoComponent } from './datelles-producto/datelles-producto.component';
 import { EndTableComponent } from '../table/end-table/end-table.component';
 import { TableModule } from '../table/table.module';
+import { PedidosModule } from '../pedidos/pedidos.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { TableModule } from '../table/table.module';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    TableModule
+    TableModule,
+    PedidosModule
     
   ]
 })

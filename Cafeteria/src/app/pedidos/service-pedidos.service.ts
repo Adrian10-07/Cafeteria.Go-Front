@@ -28,10 +28,10 @@ export class ServicePedidosService {
 
   // Obtener un pedido por su ID
   getPedidoById(idPedido: string): Observable<any> {
+    console.log(idPedido)
     return this.http.get(`${this.apiUrl}/${idPedido}`);
   }
 
-  // Eliminar un pedido por su ID
   deletePedido(idPedido: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${idPedido}`);
   }

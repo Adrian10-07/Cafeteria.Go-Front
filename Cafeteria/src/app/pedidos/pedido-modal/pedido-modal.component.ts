@@ -17,8 +17,12 @@ export class PedidoModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log('ID recibido:', this.data.idPedido); // 👈 revisa si esto se imprime y tiene valor
+  
     this.pedidosService.getPedidoById(this.data.idPedido).subscribe({
       next: (data) => {
+        console.log('Respuesta cruda del API:', data); // 👈 ¿viene algo aquí?
+  
         const pedidoRaw = Array.isArray(data) ? data[0] : data;
   
         this.pedido = {
@@ -37,6 +41,8 @@ export class PedidoModalComponent implements OnInit {
       }
     });
   }
+  
+  
   
 
   aceptar(): void {

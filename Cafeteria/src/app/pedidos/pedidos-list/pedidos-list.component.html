@@ -1,6 +1,6 @@
-<!-- Solo botón para simular el WebSocket y mostrar el modal -->
-<div class="main-container">
-  <button mat-raised-button color="primary" (click)="abrirModalPrueba()">
-    Probar Modal de Pedido
-  </button>
-</div>
+<div *ngFor="let mensaje of statusMessages" class="sensor-card">
+    <h3>Sensor ID: {{ mensaje.sensorId }}</h3>
+    <p>Status: {{ mensaje.status }}</p>
+  </div>
+  
+  

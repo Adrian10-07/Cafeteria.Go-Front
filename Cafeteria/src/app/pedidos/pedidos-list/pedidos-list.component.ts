@@ -10,6 +10,7 @@ import { PedidoModalComponent } from '../pedido-modal/pedido-modal.component';
 })
 export class PedidosListComponent implements OnInit {
   pedidos: any[] = [];
+  statusMessages: any[] = []; // <- array para los mensajes de status
 
   constructor(
     private service: ServicePedidosService,
@@ -28,34 +29,40 @@ export class PedidosListComponent implements OnInit {
     );
   }
 
+
   iniciarWebSocket(): void {
     const socket = new WebSocket('ws://54.81.41.160:3010/ws');
-
+  
     socket.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      const idPedido = data.idPedido;
+      const msg = JSON.parse(event.data);
+      console.log('Mensaje WebSocket recibido:', msg);
+  
+      const tipo = msg.type;
+      const data = msg.data;
+  
+      if (tipo === 'pedido' && data?.idPedido) {
+        this.dialog.open(PedidoModalComponent, {
+          data: { idPedido: data.idPedido },
+          width: '400px'
+        });
+      } else if (tipo === 'sensor' && data?.status && data?.sensorId) {
+        // Guardamos el status del sensor
+        this.statusMessages.push({
+          sensorId: data.sensorId,
+          status: data.status
+        });
+      } else
+      console.warn('Mensaje desconocido recibido por WebSocket:', msg);
 
-      // Abre el modal con el idPedido
-      this.dialog.open(PedidoModalComponent, {
-        data: { idPedido },
-        width: '400px'
-      });
     };
-
+  
     socket.onerror = (error) => {
       console.error('Error en el WebSocket', error);
     };
   }
+  
 
-  abrirModalPrueba(): void {
-    // Aquí simulamos que recibimos un idPedido desde WebSocket
-    const idSimulado = '1'; // Puedes cambiar este ID a uno real de tu base
 
-    this.dialog.open(PedidoModalComponent, {
-      data: { idPedido: idSimulado },
-      width: '400px'
-    });
-  }
 
 
 }

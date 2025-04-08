@@ -9,7 +9,8 @@ import { ListRobotComponent } from './list-robot/list-robot.component';
 @NgModule({
   declarations: [
     CreateRobotComponent,
-    ListRobotComponent
+    ListRobotComponent,
+
   ],
   imports: [
     CommonModule,

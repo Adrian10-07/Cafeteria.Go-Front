@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ServiceProductService } from '../service-product.service';
 import { ServicePedidosService } from '../../pedidos/service-pedidos.service';
 import { Product } from '../productModel';
+import { Pedido } from '../../pedidos/pedido.model';
 import Swal from 'sweetalert2'; // Importamos SweetAlert2
 
 @Component({
@@ -23,7 +24,7 @@ export class ListProductComponent {
 
   constructor(
     private serviceProductService: ServiceProductService,
-    private servicePedidosService: ServicePedidosService
+    private servicePedidosService: ServicePedidosService,
   ) {}
 
   ngOnInit() {
